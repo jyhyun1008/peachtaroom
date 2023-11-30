@@ -252,7 +252,7 @@ if (roomName != null) {
 
 		if (myThemeArray.len == 0) {
 			myThemeArray = ['ocean' 'peach' 'peach']
-			myItemsArray = [['bed', 'f', 'f', '0', '0', '0', 'n'] ['table', 'f', 'f', '0', '0', '0', 'n'] ['chair', 'f', 'f', '0', '0', '0', 'f']]
+			myItemsArray = [['bed', 'f', 'f', '0', '0', '0', 'f'] ['table', 'f', 'f', '0', '0', '0', 'n'] ['chair', 'f', 'f', '0', '0', '0', 'f']]
 			points = 1000
 		}
 
@@ -620,9 +620,9 @@ if (roomName != null) {
 						if itemsSaved[i][2] == 't'  { //isFlipped
 							if itemsSaved[i][6] == 'n' {
 								floor1.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-200},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}:]]`)
-							} else if itemsSaved[i][6] == 'f' {
+							} else if itemsSaved[i][6] == 'f' { //isnotTurned
 								floor1.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-200},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}_f:]]`)
-							} else {
+							} else { //isTurned
 								floor1.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-200},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}_b:]]`)
 							}
 						} else {
@@ -669,9 +669,21 @@ if (roomName != null) {
 				if itemsSaved[i][1] == 't'  { //isPlaced
 					if itemsSaved[i][5].to_num() == 1 {
 						if itemsSaved[i][2] == 't'  { //isFlipped
-							floor2.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-206},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}:]]`)
+							if itemsSaved[i][6] == 'n' {
+								floor2.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-206},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}:]]`)
+							} else if itemsSaved[i][6] == 'f' { //isnotTurned
+								floor2.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-206},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}_f:]]`)
+							} else { //isTurned
+								floor2.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-206},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}_b:]]`)
+							}
 						} else {
-							floor2.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-206},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} :isoroom_{itemsSaved[i][0]}:]`)
+							if itemsSaved[i][6] == 'n' {
+								floor2.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-206},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} :isoroom_{itemsSaved[i][0]}:]`)
+							} else if itemsSaved[i][6] == 'f' {
+								floor2.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-206},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} :isoroom_{itemsSaved[i][0]}_f:]`)
+							} else {
+								floor2.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-206},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} :isoroom_{itemsSaved[i][0]}_b:]`)
+							}
 						}
 					}
 				}
@@ -697,9 +709,21 @@ if (roomName != null) {
 				if itemsSaved[i][1] == 't'  { //isPlaced
 					if itemsSaved[i][5].to_num() == 2 {
 						if itemsSaved[i][2] == 't'  { //isFlipped
-							floor3.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-212},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}:]]`)
+							if itemsSaved[i][6] == 'n' {
+								floor3.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-212},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}:]]`)
+							} else if itemsSaved[i][6] == 'f' { //isnotTurned
+								floor3.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-212},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}_f:]]`)
+							} else { //isTurned
+								floor3.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-212},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} $[flip :isoroom_{itemsSaved[i][0]}_b:]]`)
+							}
 						} else {
-							floor3.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-212},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} :isoroom_{itemsSaved[i][0]}:]`)
+							if itemsSaved[i][6] == 'n' {
+								floor3.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-212},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} :isoroom_{itemsSaved[i][0]}:]`)
+							} else if itemsSaved[i][6] == 'f' {
+								floor3.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-212},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} :isoroom_{itemsSaved[i][0]}_f:]`)
+							} else {
+								floor3.push(`$[position.y={itemsSaved[i][3].to_num()+itemsSaved[i][4].to_num()-212},x={itemsSaved[i][3].to_num()-itemsSaved[i][4].to_num()} :isoroom_{itemsSaved[i][0]}_b:]`)
+							}
 						}
 					}
 				}
